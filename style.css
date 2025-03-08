@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+div.tb{
+    background: pink;
+    width: 1000px;
+    display: grid;
+}
+table.table{
+    width: 1000px;
+    grid-template-columns: 1fr 1fr 1fr ;
+    text-align: left;
+    border: 1px solid black;
+}
+th{
+
+    width: 700px;
+    
+}
+.col-1{
+    width: 100px;
+}
+.form{
+    margin: 10px;
+
+}
+.in{
+    display: grid;
+    gap: 10px;
+    width: 500px;
+}
+@media (max-width: 630px) {
+    .tb {
+        max-width: 100%; /* Chiếm toàn màn hình trên mobile */
+        padding: 10px;
+    }
+    .in {
+        max-width: 100%; /* Form co lại trên mobile */
+    }
+    .col-1 {
+        width: 50px; /* Giảm kích thước cột trên mobile */
+    }
+}

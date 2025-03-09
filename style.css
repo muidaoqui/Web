@@ -30,13 +30,13 @@ th{
 }
 @media (max-width: 630px) {
     .tb {
-        max-width: 100%; /* Chiếm toàn màn hình trên mobile */
+        max-width: 100%; 
         padding: 10px;
     }
     .in {
-        max-width: 100%; /* Form co lại trên mobile */
+        max-width: 100%; 
     }
     .col-1 {
-        width: 50px; /* Giảm kích thước cột trên mobile */
+        width: 50px; 
     }
 }

@@ -1,77 +1,50 @@
-.header{
+.head{
     display: flex;
-    background-color: rgb(255, 215, 0);
+    justify-content: space-between;
+}
+
+.logo{
+    width: 100px;
     height: 100px;
-
-}
-header{
-    background-color: rgb(255, 215, 0);
+    margin-left: 80px;
 }
 
-input{
-    width: 400px;
-    height: 40px;
-    margin-top: 30px;
-    border-radius: 10px;
-    margin-left: 50px;
-
-}
-button{
-    margin-top: -100px;
-    width: 50px;
-    height: 40px;
-}
-.gh{
-    margin-top: 50px;
-    width: 150px;
-    height: 40px;
-    margin-left: 20px;
-}
-.us{
-    margin-left: -80px;
-    margin-top: 50px;
-    width: 150px;
-    height: 40px;
-    margin-left: -10px;
-}
-a{
-    text-decoration: none;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif ;
-}
-.city{
-
-    
-}
-select.tp{
-    width: 300px;
-    height: 40px;
-    border-radius: 10px;
-    margin-top: 40px;
-}
-ul {
+ul.nav{
     display: flex;
-    gap: 50px;
+    justify-content: space-between;
     list-style: none;
-    padding-bottom: 10px;
 }
-.nav-bar{
-    text-align: center;
-    
+li{
+    width: 100px;
 }
-.mar{
-    height: 200px;
-    width: 100%;
+.title{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 50px;
+    gap: 400px;
 }
 .qc{
-    width: 70%;
-    margin-left: 200px;
+    height: 600px;
+    width: 400px;
 }
 .img{
-    margin-right: -20px;
+    width: 100px;
+    height: 100px;
 }
-table ul li{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-} 
+.abc{
+    z-index: -1;
+    display: flex;
+    margin-top: -600px;
+    margin-left: -100px;
+}
+.bg{
+    display: flex;
+    z-index: 1;
+}
+button{
+    width: 100px;
+    height: 50px;
+}
+input{
+    height: 50px;
+}

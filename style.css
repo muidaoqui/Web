@@ -7,44 +7,121 @@
     width: 100px;
     height: 100px;
     margin-left: 80px;
+    margin-top: 48.5px;
 }
 
 ul.nav{
     display: flex;
     justify-content: space-between;
     list-style: none;
+    gap: 48px;
+    margin-top: 55px;
 }
 li{
     width: 100px;
 }
+.sreach{
+    margin-top: 40px;
+    margin-right: 80px;
+}
+.gio{
+    margin-right: -26px;
+}
 .title{
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 50px;
-    gap: 400px;
+    gap: 334px;
+    width: 1603px;
+    height: 826px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
 }
 .qc{
-    height: 600px;
-    width: 400px;
+    
 }
 .img{
     width: 100px;
     height: 100px;
 }
 .abc{
-    z-index: -1;
+    z-index: 1;
     display: flex;
-    margin-top: -600px;
+    margin-top: -640px;
     margin-left: -100px;
+    width: 253px;
+    height: 176px;
 }
 .bg{
     display: flex;
     z-index: 1;
+    width: 405px;
+    height: 666px;
+    margin-right: 160px;
 }
-button{
-    width: 100px;
-    height: 50px;
+button.bn{
+    width: 23px;
+    height: 23px;
+    overflow: none;
+    margin-left: 47px;
 }
 input{
+    height: 55px;
+    width: 320px;
+}
+h1{
+    margin-top: 113.5px;
+    font-size: 60px;
+}
+p.un{
+    font-size: 20px;
+    margin-top: 24px;
+}
+.link{
+    width: 624px;
+    height: 599px;
+}
+.per{
+    width: 224px;
+    height: 96px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.bt{
+    width: 624px;
+    height: 77px;
+    display: flex;
+    margin-top: 40px;
+    gap: 16px;
+}
+
+.bu{
+    width: 304px;
+    height: 77px;
+    border: 1px solid;
+    border-radius: 16px;
+    background-color: #A4074D;
+    color: white;
+    font-size: 24px;
+}
+.but{
+    width: 304px;
+    height: 77px;
+    border: 1px solid #A4074D;
+    border-radius: 16px;
+    color: black;
+    background-color: white;
+    font-size: 24px;
+}
+p.p{
+    margin-top: 40px;
+    font-size: 20px;
+}
+.links{
+    gap: 8px;
+}
+a{
+    width: 150px;
     height: 50px;
 }

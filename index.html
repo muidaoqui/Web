@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8z4+2e5c7e5a5b5e5c5e5c5e5c5e5c5e5c5" crossorigin="anonymous" />
+    <title>Task List with Validation</title>
 </head>
-<body>
 
-    <script src="main.js"></script>
+<body>
+    <input type="text" id="inputText" placeholder="Nhập nội dung" required>
+    <button onclick="addTask()">Add</button>
+    <button onclick="deleteAllTasks()">Delete All</button> <!-- Nút delete -->
+    <ul id="taskList"></ul>
+
+    <script>
+        // Khởi tạo mảng listTask từ localStorage (nếu có) hoặc mảng rỗng nếu chưa có dữ liệu
+        let listTask = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Hàm hiển thị danh sách các task từ mảng listTask lên giao diện
+        function displayTasks() {
+            // Lấy phần tử <ul> có id="taskList" để hiển thị danh sách
+            const taskList = document.getElementById('taskList');
+            // Xóa toàn bộ nội dung hiện tại của <ul> để tránh hiển thị trùng lặp
+            taskList.innerHTML = '';
+            // Duyệt qua từng task trong mảng listTask
+            listTask.forEach(function (task) {
+                // Tạo một phần tử <li> mới cho mỗi task
+                const li = document.createElement('li');
+                // Gán nội dung của task vào <li>
+                li.textContent = task;
+                // Thêm <li> vào <ul>
+                taskList.appendChild(li);
+            });
+        }
+
+        // Hàm thêm task mới vào danh sách
+        function addTask() {
+            // Lấy phần tử <input> có id="inputText"
+            const taskInput = document.getElementById('inputText');
+            // Lấy giá trị từ input và loại bỏ khoảng trắng thừa ở đầu/cuối
+            const task = taskInput.value.trim();
+
+            // Kiểm tra nếu input rỗng (sau khi loại bỏ khoảng trắng)
+            if (task === "") {
+                // Hiển thị thông báo lỗi nếu người dùng không nhập nội dung
+                alert("Vui lòng nhập nội dung!");
+                // Thoát khỏi hàm, không thực hiện thêm task
+                return;
+            }
+
+            // Thêm task mới vào mảng listTask
+            listTask.push(task);
+            // Lưu mảng listTask vào localStorage dưới dạng chuỗi JSON
+            localStorage.setItem('tasks', JSON.stringify(listTask));
+            // Xóa nội dung trong ô input sau khi thêm task
+            taskInput.value = '';
+            // Cập nhật giao diện bằng cách gọi lại hàm displayTasks
+            displayTasks();
+            // In mảng listTask ra console để kiểm tra (dùng cho debug)
+            console.log(listTask);
+        }
+
+        // Hàm xóa toàn bộ task
+        function deleteAllTasks() {
+            // Đặt lại mảng listTask thành mảng rỗng
+            listTask = [];// Cập nhật localStorage với mảng rỗng
+            localStorage.setItem('tasks', JSON.stringify(listTask));
+            // Cập nhật giao diện bằng cách gọi lại hàm displayTasks
+            displayTasks();
+        }
+
+        // Khi trang web được tải, gọi hàm displayTasks để hiển thị các task hiện có
+        window.onload = displayTasks;
+    </script>
 </body>
+
 </html>

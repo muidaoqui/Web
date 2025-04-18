@@ -1,5 +1,8 @@
-let arr = [1, 2, 3];
-let newArr = arr.find((item)=>{
-    return item * 2;
-});
-console.log(newArr); // Output: [2, 4, 6]
+let bool=true;
+const inputClass = document.querySelector('input.inputClass');
+const btnClick = document.querySelector('button.btnClass');
+
+btnClick.addEventListener('click', function() {
+    const input = document.querySelector('input.inputClass').value;
+    document.getElementById('result').innerHTML = input;
+}); 

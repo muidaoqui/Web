@@ -1,78 +1,81 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List with Validation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body>
-    <input type="text" id="inputText" placeholder="Nhập nội dung" required>
-    <button onclick="addTask()">Add</button>
-    <button onclick="deleteAllTasks()">Delete All</button> <!-- Nút delete -->
-    <ul id="taskList"></ul>
-
-    <script>
-        // Khởi tạo mảng listTask từ localStorage (nếu có) hoặc mảng rỗng nếu chưa có dữ liệu
-        let listTask = JSON.parse(localStorage.getItem('tasks')) || [];
-
-        // Hàm hiển thị danh sách các task từ mảng listTask lên giao diện
-        function displayTasks() {
-            // Lấy phần tử <ul> có id="taskList" để hiển thị danh sách
-            const taskList = document.getElementById('taskList');
-            // Xóa toàn bộ nội dung hiện tại của <ul> để tránh hiển thị trùng lặp
-            taskList.innerHTML = '';
-            // Duyệt qua từng task trong mảng listTask
-            listTask.forEach(function (task) {
-                // Tạo một phần tử <li> mới cho mỗi task
-                const li = document.createElement('li');
-                // Gán nội dung của task vào <li>
-                li.textContent = task;
-                // Thêm <li> vào <ul>
-                taskList.appendChild(li);
-            });
-        }
-
-        // Hàm thêm task mới vào danh sách
-        function addTask() {
-            // Lấy phần tử <input> có id="inputText"
-            const taskInput = document.getElementById('inputText');
-            // Lấy giá trị từ input và loại bỏ khoảng trắng thừa ở đầu/cuối
-            const task = taskInput.value.trim();
-
-            // Kiểm tra nếu input rỗng (sau khi loại bỏ khoảng trắng)
-            if (task === "") {
-                // Hiển thị thông báo lỗi nếu người dùng không nhập nội dung
-                alert("Vui lòng nhập nội dung!");
-                // Thoát khỏi hàm, không thực hiện thêm task
-                return;
-            }
-
-            // Thêm task mới vào mảng listTask
-            listTask.push(task);
-            // Lưu mảng listTask vào localStorage dưới dạng chuỗi JSON
-            localStorage.setItem('tasks', JSON.stringify(listTask));
-            // Xóa nội dung trong ô input sau khi thêm task
-            taskInput.value = '';
-            // Cập nhật giao diện bằng cách gọi lại hàm displayTasks
-            displayTasks();
-            // In mảng listTask ra console để kiểm tra (dùng cho debug)
-            console.log(listTask);
-        }
-
-        // Hàm xóa toàn bộ task
-        function deleteAllTasks() {
-            // Đặt lại mảng listTask thành mảng rỗng
-            listTask = [];// Cập nhật localStorage với mảng rỗng
-            localStorage.setItem('tasks', JSON.stringify(listTask));
-            // Cập nhật giao diện bằng cách gọi lại hàm displayTasks
-            displayTasks();
-        }
-
-        // Khi trang web được tải, gọi hàm displayTasks để hiển thị các task hiện có
-        window.onload = displayTasks;
-    </script>
-</body>
-
+    <body class="bg-gray-100">
+        <header>
+            <div class="bg-gray-500 text-white p-4 text-center">
+                <h1 class="text-2xl font-bold text-red-500">MindX School</h1>
+                <h1 class="text-xl font-bold">Trò Chơi Trượt Gạch</h1>
+            </div>
+        </header>
+        <div class=" min-h-screen">
+            <div class="flex  justify-center text-white p-4 mt-8">
+                <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
+                    Bắt đầu
+                </button>
+            </div>
+            <div class="flex justify-around items-center  p-4">
+                <div id="grid" class="grid grid-cols-4 gap-4 w-4/6 bg-gray-200 text-center p-4 rounded-md h-80 place-items-center">
+                    <div data-index="1" class="tile w-full h-full flex justify-center items-center bg-green-100 text-green-500 p-auto">1</div>
+                    <div data-index="2" class="tile w-full h-full flex justify-center items-center bg-red-100 text-red-500 p-auto">2</div>
+                    <div data-index="3" class="tile w-full h-full flex justify-center items-center bg-blue-100 text-blue-500 p-auto">3</div>
+                    <div data-index="4" class="tile w-full h-full flex justify-center items-center bg-purple-100 text-purple-500 p-auto">4</div>
+                    <div data-index="5" class="tile w-full h-full flex justify-center items-center bg-pink-100 text-pink-500 p-auto">5</div>
+                    <div data-index="6" class="tile w-full h-full flex justify-center items-center bg-yellow-100 text-yellow-500 p-auto">6</div>
+                    <div data-index="7" class="tile w-full h-full flex justify-center items-center bg-indigo-100 text-indigo-500 p-auto">7</div>
+                    <div data-index="8" class="tile w-full h-full flex justify-center items-center bg-gray-100 text-gray-500 p-auto">8</div>
+                    <div data-index="9" class="tile w-full h-full flex justify-center items-center bg-emerald-100 text-emerald-500 p-auto">9</div>
+                    <div data-index="10" class="tile w-full h-full flex justify-center items-center bg-amber-100 text-amber-500 p-auto">10</div>
+                    <div data-index="11" class="tile w-full h-full flex justify-center items-center bg-lime-100 text-lime-500 p-auto">11</div>
+                    <div data-index="0" class="tile black-tile w-full h-full flex justify-center items-center bg-black text-cyan-500 p-auto"></div>
+                </div>
+                <div>
+                    <div class="bg-green-200 p-4 rounded-md text-center">
+                        <h3 class="text-l mb-4">Đồng hồ</h3>
+                        <time id="timer" class="text-2xl font-bold">00:00</time>
+                        <p>Số bước hiện tại <label id="stepNumber"></label></p>
+                    </div>
+                    <div class="text-center bg-white p-4 rounded-md mt-4">
+                        <h2 class="text-xl font-bold mb-4">Hướng Dẫn Di Chuyển</h2>
+                        <div class="grid grid-cols-3 gap-2 place-items-center mb-6">
+                            <div></div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md text-xl">↑</div>
+                            <div></div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md text-xl">←</div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md text-xl">↓</div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md text-xl">→</div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 place-items-center">
+                            <div></div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md font-semibold">W</div>
+                            <div></div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md font-semibold">A</div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md font-semibold">S</div>
+                            <div class="bg-gray-200 w-12 h-12 flex items-center justify-center rounded-md font-semibold">D</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="bg-gray-200  p-4 rounded-md">
+                <h2 class="text-center">Lịch sử lượt chơi</h2>
+                <div class="grid grid-cols-4 gap-4 bg-gray-300 h-10 p-2 mt-4">
+                    <div class=" flex  rounded-md">#</div>
+                    <div class=" flex  rounded-md">Bước đi</div>
+                    <div class=" flex  rounded-md">Thời gian</div>
+                </div>
+                <div id="history-list" class="mt-4"></div>
+            </div>
+        </div>
+        <footer class="bg-gray-500 text-white p-4 text-center mt-8">
+            <p>&copy; 2025 MindX School.</p>
+            <p>Class: PNL-C4EJS157 Group 1 HTLO</p>
+            <p>Student: Dao Qui Mui</p>
+        </footer>
+        <script src="main.js"></script>
+    </body>
 </html>
